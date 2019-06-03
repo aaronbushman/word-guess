@@ -1,0 +1,17 @@
+.main {
+    text-align: center;
+    background: gray;
+}
+
+#title {
+    background-image: linear-gradient(#200a99, #200a99,  white);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-size: 70px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: bolder;   
+}
