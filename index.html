@@ -12,12 +12,28 @@
 
 <body class="main">
     <br>
-    <br>
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 border-bottom border-white" id="title">Jazz Musician Word Guess</div>
-            <div class="col-sm-6 border-right border-white">win lose image</div>
-            <div class="col-sm-6 border-left border-white"><p id="musicianname">----</p></div>
+            <div class="col-sm-12 border-bottom border-white" id="title">Jazz Musician Name Guess</div>
+            <div class="col-sm-6 border-right border-white">
+                <br>
+                <img id="image" src="assets/images/bluenote.jpg">
+                <h1 id="youlose"></h1>
+            </div>
+            <div class="col-sm-6 border-left border-white">
+                <h1>Guess the musician's name!</h1>
+                <p>Press your first guessed lettre on the keyboard to start.</p>
+                <div class="col-sm-12 border border-white">
+                    <p>Correct Choices:</p>
+                    <h2 id="musicianname">-------</h2></div>
+                <br>
+                <p>Incorrectly Guessed Letters:<span id="wrong"></span></p>
+                <br>
+                <h3>Score:</h3>
+                <h5>Wins:<span id="wins"> </span></h5>
+                <h5>Losses:<span id="losses"> </span></h5>
+            </div>
+            <div class="col-sm-12"><br><h5>Guesses Left:<span id="guessesleft"> </span></h5></div>
         </div>
     </div>
     <script type="text/javascript" src="assets/javascript/game.js"></script>
