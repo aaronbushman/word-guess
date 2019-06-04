@@ -1,19 +1,34 @@
+//set array
+
 var musicians = [
-"hank mobley",
-"john coltrane",
-"thelonius monk",
-"lee morgan",
-"sun ra",
-"ornette coleman",
-"don cherry",
-"pharoah sanders",
-"alice coltrane",
+    "hankmobley",
+    "johncoltrane",
+    "theloniusmonk",
+    "leemorgan",
+    "sunra",
+    "ornettecoleman",
+    "doncherry",
+    "pharoahsanders",
+    "alicecoltrane"
 ];
 
-var musician = musicians[Math.floor(Math.random() * musicians.length)];
+//set vars
+var blankLetters = 0;
+var nameChoice = "";
+var musicianLetters = [];
+var wins = 0;
+var losses = 0;
+var letters = 0;
 
-for (var i = 0; i < musician.length; i++) {
-    nameSelection[i] = "_";
+//game
+function wordGuess() {
+    nameChoice = musicians[Math.floor(Math.random() * musicians.length)];
+    letters = nameChoice.split("");
+    blankLetters = letters.length;
+
+    for (var i = 0; i < blankLetters; i++) {
+        musicianLetters.push("_");
+        document.getElementById("musicianname").innerHTML = "  " + musicianLetters.join("  ");
+    }
 }
 
-console.log(name)
