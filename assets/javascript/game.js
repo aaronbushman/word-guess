@@ -1,5 +1,3 @@
-//set array
-
 var musicians = [
     "hankmobley",
     "johncoltrane",
@@ -20,7 +18,7 @@ var wrongGuesses = [];
 var wins = 0;
 var losses = 0;
 var letters = 0;
-var guessesLeft = nameChoice.length + 3;
+var guessesLeft = 10;
 
 function gameStart() {
     nameChoice = musicians[Math.floor(Math.random() * musicians.length)];
@@ -47,7 +45,7 @@ function letterCheck(letter) {
             }
         }
     }
-    
+
     else {
         wrongGuesses.push(letter);
         guessesLeft--;
@@ -55,11 +53,11 @@ function letterCheck(letter) {
 }
 
 function endGame() {
-    if (musicianLetters.toString() == correctGuesses.toString()) {
+    if (musicianLetters === correctGuesses) {
         wins++;
         document.getElementById("wins").innerHTML = " " + wins;
         win();
-        } 
+    }
     else if (guessesLeft === 0) {
         losses++;
         document.getElementById("youlose").innerHTML = "You lose! Try again?";
@@ -71,39 +69,39 @@ function endGame() {
 }
 
 function win() {
-    if (nameChoice === musician[0]) {
+    if (correctGuesses === musician[0]) {
         document.getElementById("image").src = "assets/images/hankmobley.jpg";
     }
 
-    if (nameChoice === musician[1]) {
+    else if (correctGuesses === musician[1]) {
         document.getElementById("image").src = "assets/images/johncoltrane.jpg";
     }
 
-    if (nameChoice === musician[2]) {
+    else if (correctGuesses === musician[2]) {
         document.getElementById("image").src = "assets/images/theloniousmonk.jpg";
     }
 
-    if (nameChoice === musician[3]) {
+    else if (correctGuesses === musician[3]) {
         document.getElementById("image").src = "assets/images/leemorgan.jpg";
     }
 
-    if (nameChoice === musician[4]) {
+    else if (correctGuesses === musician[4]) {
         document.getElementById("image").src = "assets/images/sunra.jpg";
     }
 
-    if (nameChoice === musician[5]) {
+    else if (correctGuesses === musician[5]) {
         document.getElementById("image").src = "assets/images/ornettecoleman.jpg";
     }
 
-    if (nameChoice === musician[6]) {
+    else if (correctGuesses === musician[6]) {
         document.getElementById("image").src = "assets/images/doncherry.jpg";
     }
 
-    if (nameChoice === musician[7]) {
+    else if (correctGuesses === musician[7]) {
         document.getElementById("image").src = "assets/images/pharoahsanders.jpg";
     }
 
-    if (nameChoice === musician[8]) {
+    else if (correctGuesses === musician[8]) {
         document.getElementById("image").src = "assets/images/alicecoltrane.jpg";
     }
 }
@@ -111,8 +109,7 @@ function win() {
 
 
 gameStart();
-
-document.onkeyup = function(event) {
+document.onkeyup = function (event) {
     var guesses = String.fromCharCode(event.keyCode).toLowerCase();
 
     letterCheck(guesses);
@@ -120,4 +117,22 @@ document.onkeyup = function(event) {
     endGame();
 
     document.getElementById("wrong").innerHTML = " " + wrongGuesses.join(" ");
-}   
+}
+
+function reset() {
+    blankLetters = 0;
+    nameChoice = "";
+    musicianLetters = [];
+    correctGuesses = [];
+    wrongGuesses = [];
+    letters = "";
+    guessesLeft = 10;
+    nameChoice = musicians[Math.floor(Math.random() * musicians.length)];
+    letters = nameChoice.split("");
+    blankLetters = letters.length;
+
+    for (var i = 0; i < blankLetters; i++) {
+        musicianLetters.push("_");
+        document.getElementById("musicianname").innerHTML = " " + musicianLetters.join(" ");
+    }
+}
